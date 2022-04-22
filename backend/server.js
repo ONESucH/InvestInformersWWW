@@ -1,4 +1,4 @@
-// webhooks работают на https, используем ngrok глобально, ngrok http 3010
+// webhooks работают на https, используем ngrok глобально "ngrok http 3000"
 const config = require('config');
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
@@ -23,7 +23,7 @@ bot.onText(/\/kurs/, (msg, [ source, match ]) => {
   const { chat: { id } } = msg;
 
   axios
-    .get(`https://currate.ru/api/?get=rates&pairs=USDRUB,EURRUB&key=${config.get('tokenCurrate')}`)
+    .get(`https://currate.ru/api/?get=rates&pairs=USDRUB,EURRUB,BTCUSD,ETHEUR,ETHRUB,BTCEUR,BTCRUB,ETHUSD&key=${config.get('tokenCurrate')}`)
     .then(async (res) => {
       const parsedHtml = await parsers.kurs(res.data.data);
       await bot.sendMessage(id, parsedHtml);

@@ -13,9 +13,17 @@ const news = (item) => `
 `;
 
 const kurs = (item) => `
-  Курсы валют:
+  Курсы Фиата:
   USDRUB ${item.USDRUB}
   EURRUB ${item.EURRUB}
+  
+  Курсы Крипты:
+  BTCUSD ${item.BTCUSD}
+  BTCRUB ${item.BTCRUB}
+  BTCEUR ${item.BTCEUR}
+  ETHRUB ${item.ETHRUB}
+  ETHUSD ${item.ETHUSD}
+  ETHEUR ${item.ETHEUR}
 `;
 
 module.exports = {
